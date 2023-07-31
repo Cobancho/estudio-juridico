@@ -4,6 +4,8 @@ import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource/inter/variable.css";
 
+import "../global.css";
+
 export interface Props {
   title: string;
 }
@@ -11,7 +13,7 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
+  "/opengraph.png",
   Astro.site
 ).toString();
 ---
@@ -21,7 +23,7 @@ const resolvedImageWithDomain = new URL(
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/T&A.svg" />
+    <link rel="icon" type="image/svg+xml" href="/TyA.svg" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->

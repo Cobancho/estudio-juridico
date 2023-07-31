@@ -9,7 +9,9 @@ import alpinejs from "@astrojs/alpinejs";
 export default defineConfig({
   site: "https://astroship.web3templates.com",
   integrations: [
-    tailwind(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
