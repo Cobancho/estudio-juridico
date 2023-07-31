@@ -17,6 +17,8 @@ import Button from "./ui/button.astro";
   />
   <!-- Create your free access key from https://web3forms.com/ -->
   <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+  <input type="hidden" name="subject" value="Consulta" />
+  <input type="hidden" name="from_name" value="Consulta desde la pagina" />
   <div class="mb-5">
     <input
       type="text"
@@ -109,7 +111,7 @@ form.addEventListener("submit", function (e) {
       let json = await response.json();
       if (response.status == 200) {
         result.classList.add("text-green-500");
-        result.innerHTML = json.message;
+        result.innerHTML = "Email enviado!";
       } else {
         console.log(response);
         result.classList.add("text-red-500");
