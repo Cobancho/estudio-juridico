@@ -7,21 +7,17 @@ import Sectionhead from "@components/sectionhead.astro";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedBlogEntries = await getCollection("blog", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
-
-// Sort content entries by publication date
-publishedBlogEntries.sort(function (a, b) {
-  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+  return !data.draft;
 });
 ---
 
 <Layout title="Blog">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Our Blog</Fragment>
+      <Fragment slot="title">Noticias y Articulos</Fragment>
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        Aca podes encontrar noticias y articulos academicos relacionados al
+        mundo del trabajo
       </Fragment>
     </Sectionhead>
     <main class="mt-16">
@@ -58,11 +54,9 @@ publishedBlogEntries.sort(function (a, b) {
                         {blogPostEntry.data.author}
                       </span>
                       <span class="text-gray-400">• </span>
-                      <time
-                        class="text-gray-400"
-                        datetime={blogPostEntry.data.publishDate.toISOString()}>
-                        {blogPostEntry.data.publishDate.toDateString()}
-                      </time>
+                      <span class="text-gray-400">
+                        {blogPostEntry.data.publishDate}
+                      </span>
                     </div>
                   </div>
                 </div>

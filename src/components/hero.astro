@@ -1,54 +1,41 @@
 ---
+import Icon from "astro-icon";
 import { Picture } from "@astrojs/image/components";
-import heroImage from "assets/hero.png";
-import Link from "@components/ui/link.astro";
-import { Icon } from "astro-icon";
+import bgImage from "@assets/Facultad_De_Derecho.jpg";
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src={heroImage}
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      aspectRatio="4:3"
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-    />
-  </div>
-  <div>
-    <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Marketing website done with Astro
-    </h1>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      Astroship is a starter template for startups, marketing websites & landing
-      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly create
-      any website with this starter.
-    </p>
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
-        href="#"
-        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
-        rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" />
-
-        Download for Free
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-        GitHub Repo
-      </Link>
+<main class="h-screen">
+  <div class="grid lg:grid-cols-2 h-4/5 place-items-center mt-14 lg:mt-2">
+    <div>
+      <h1 class="hidden lg:flex text-xl lg:text-2xl xl:text-3xl font-light">
+        T&A
+      </h1>
+      <h1
+        class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
+        Estudio Jurídico Laboral
+      </h1>
+      <p class="text-lg mt-2 text-slate-600 max-w-md text-justify">
+        Asistencia legal representando a los trabajadores para defender sus
+        derechos en todas las instancias administrativas o judiciales.
+      </p>
     </div>
+    <div class="my-6 md:block max-w-xl">
+      <Picture
+        src={bgImage}
+        alt="Astronaut in the air"
+        widths={[800, 1000, 1200]}
+        aspectRatio="1:1"
+        sizes="(max-width: 1200px) 100vw, 620px"
+        loading="eager"
+        format="avif"
+        class="rounded-3xl border-slate-700 border-[6px]"
+      />
+    </div>
+  </div>
+  <div class="hidden lg:flex items-center justify-center mx-auto bottom-0">
+    <Icon
+      name="ic:outline-keyboard-double-arrow-down"
+      class="animate-bounce h-14"
+    />
   </div>
 </main>

@@ -5,8 +5,8 @@ import Container from "@components/container.astro";
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("blog");
-  return blogEntries.map((entry) => ({
+  const teamMembers = await getCollection("team");
+  return teamMembers.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
@@ -17,23 +17,16 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title}>
+<Layout title={entry.data.name}>
   <Container>
     <div class="mx-auto max-w-3xl mt-14">
-      <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
-        {entry.data.category}
-      </span>
       <h1
         class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
-        {entry.data.title}
+        {entry.data.name}
       </h1>
       <div class="flex gap-2 mt-3 items-center flex-wrap md:flex-nowrap">
         <span class="text-gray-400">
-          {entry.data.author}
-        </span>
-        <span class="text-gray-400">•</span>
-        <span class="text-gray-400">
-          {entry.data.publishDate}
+          {entry.data.title}
         </span>
       </div>
     </div>
@@ -43,9 +36,9 @@ const { Content } = await entry.render();
     </div>
     <div class="text-center mt-8">
       <a
-        href="/blog"
+        href="/nosotros"
         class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-        >← Back to Blog</a
+        >← Nuestro equipo</a
       >
     </div>
   </Container>
