@@ -112,6 +112,7 @@ form.addEventListener("submit", function (e) {
       if (response.status == 200) {
         result.classList.add("text-green-500");
         result.innerHTML = "Email enviado!";
+        openToast();
       } else {
         console.log(response);
         result.classList.add("text-red-500");
