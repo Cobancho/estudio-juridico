@@ -5,6 +5,8 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import alpinejs from "@astrojs/alpinejs";
 
+import vercel from "@astrojs/vercel/static";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://astroship.web3templates.com",
@@ -19,4 +21,8 @@ export default defineConfig({
     sitemap(),
     alpinejs(),
   ],
+  output: "static",
+  adapter: vercel({
+    analytics: true,
+  }),
 });
