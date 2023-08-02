@@ -9,6 +9,13 @@ import Sectionhead from "@components/sectionhead.astro";
 const publishedTeamMembers = await getCollection("team", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
 });
+console.log(publishedTeamMembers);
+
+// Sort by publish date
+
+const sortedTeamMembers = [...publishedTeamMembers].sort(
+  (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime()
+);
 ---
 
 <Layout>
@@ -24,7 +31,7 @@ const publishedTeamMembers = await getCollection("team", ({ data }) => {
       <div
         class="grid grid-cols-2 md:grid-cols-4 gap-10 mx-auto max-w-4xl mt-12">
         {
-          publishedTeamMembers.map((teamMemberEntry) => (
+          sortedTeamMembers.map((teamMemberEntry) => (
             <a href={`/nosotros/${teamMemberEntry.slug}`}>
               <div class="group">
                 <div class="w-full aspect-square">
